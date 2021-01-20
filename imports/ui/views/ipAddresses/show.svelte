@@ -1,1 +1,0 @@
-<h1>Show ip addresses</h1>

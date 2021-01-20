@@ -1,20 +1,16 @@
-import Layout from "./views/layout.svelte";
-import Index from "./views/index.svelte";
-import IpAddressesIndex from "./views/ipAddresses/index.svelte";
-import IpAddressesShow from "./views/ipAddresses/show.svelte";
-import NetworksIndex from "./views/networks/index.svelte";
-import NetworksShow from "./views/networks/show.svelte";
-import NotFound from "./views/notFound.svelte";
+import IpAddressesList from "./pages/IpAddressesList.svelte";
+import IpAddressesShow from "./pages/IpAddressesShow.svelte";
+import NetworksList from "./pages/NetworksList.svelte";
+import NetworksShow from "./pages/NetworksShow.svelte";
 
-const routes = [
-    {
-        name: "/",
-        component: Home,
-    },
-    {
-        name: "*",
-        component: NotFound,
-    },
-];
+import Home from './pages/Home.svelte';
+import NotFound from './pages/NotFound.svelte';
 
-export { routes }
+export default {
+    '/': Home,
+    '/ipAddresses/': IpAddressesList,
+    '/ipAddresses/:hostname': IpAddressesShow,
+    '/networks/': NetworksList,
+    '/networks/:name': NetworksShow,
+    '*': NotFound
+};
