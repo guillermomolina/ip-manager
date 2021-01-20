@@ -1,0 +1,61 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceRoot}/main.js",
+            "stopOnEntry": false,
+            "args": [],
+            "cwd": "${workspaceRoot}",
+            "preLaunchTask": null,
+            "runtimeExecutable": null,
+            "runtimeArgs": [
+                "--nolazy"
+            ],
+            "env": {
+                "NODE_ENV": "development"
+            },
+            "console": "internalConsole",
+            "sourceMaps": true,
+            "outFiles": [
+                "${workspaceRoot}/.meteor/local/build/programs/server/app/app.js",
+                "${workspaceRoot}/.meteor/local/build/programs/web.browser/app/app.js"
+            ]
+        },
+        {
+            "name": "Attach Server",
+            "type": "node",
+            "request": "attach",
+            "port": 5858,
+            "address": "localhost",
+            "restart": false,
+            "sourceMaps": true,
+            "outFiles": ["${workspaceRoot}/.meteor/local/build/programs/server/app/app.js"],
+            "localRoot": "${workspaceRoot}",
+            "remoteRoot": null
+        },
+        {
+            "name": "Attach Client",
+            "type": "chrome",
+            "request": "attach",
+            "port": 9222,
+            "address": "localhost",
+            "sourceMaps": true,
+            //"outFiles": ["${workspaceRoot}/.meteor/local/build/programs/web.browser/app/app.js"],
+            "trace": true,
+            "webRoot": "${workspaceRoot}",
+            "url": "http://localhost:3000/"
+        },
+        {
+            "name": "Attach to Process",
+            "type": "node",
+            "request": "attach",
+            "processId": "${command.PickProcess}",
+            "port": 5858,
+            "sourceMaps": false,
+            "outFiles": []
+        }
+    ]
+}
