@@ -31,5 +31,5 @@ let networks = [
 ];
 
 networks.forEach(network => {
-    NetworksCollection.insert(network);
+    NetworksCollection.upsert({ name: network.name }, network);
 });

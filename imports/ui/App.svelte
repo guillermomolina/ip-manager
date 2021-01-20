@@ -7,7 +7,7 @@
 
     import routes from "./routes";
 
-    push("/networks");
+    //push("/networks");
 </script>
 
 <main>

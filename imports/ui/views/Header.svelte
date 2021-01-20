@@ -26,7 +26,7 @@
     <Collapse {isOpen} navbar expand="md" on:update={handleUpdate}>
       <Nav class="ml-auto" navbar>
         <NavItem>
-          <NavLink href="#/ipAddresses">IP Addresses</NavLink>
+          <NavLink href="#/hosts">Hosts</NavLink>
         </NavItem>
         <NavItem>
           <NavLink href="#/networks">Networks</NavLink>

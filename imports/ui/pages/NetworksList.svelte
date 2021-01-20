@@ -1,40 +1,28 @@
 <script lang="ts">
+    import { Meteor } from "meteor/meteor";
+    import { useTracker } from "meteor/rdb:svelte-meteor-data";
+    import { onMount } from "svelte";
     import { Table } from "sveltestrap/src";
+    import {push} from 'svelte-spa-router'
 
-    let networks = [
-        {
-            name: "desprivat",
-            description: "Xarxa privada de desenvolupament",
-            vlan: 123,
-            domain: "base.des",
-            address: "192.168.123.0",
-            netmask: 24,
-            router: "192.168.123.1",
-        },
-        {
-            name: "preprivat",
-            description: "Xarxa privada de preproducció",
-            vlan: 122,
-            domain: "base.pre",
-            address: "192.168.122.0",
-            netmask: 24,
-            router: "192.168.122.1",
-        },
-        {
-            name: "proprivat",
-            description: "Xarxa privada de producció",
-            vlan: 121,
-            domain: "base.pro",
-            address: "192.168.121.0",
-            netmask: 24,
-            router: "192.168.121.1",
-        },
-    ];
+    import { NetworksCollection } from "../../db/networks";
+
+    onMount(async () => {
+        Meteor.subscribe("networks");
+    });
+
+    $: networksCount = useTracker(() => NetworksCollection.find({}).count());
+    $: networks = useTracker(() => NetworksCollection.find().fetch());
+
+	function handleClick(network) {
+        push('/networks/' + network.name);
+	}
+
 </script>
 
-<h1>Networks</h1>
+<h1>Networks ({$networksCount})</h1>
 
-<Table hover>
+<Table hover responsive>
     <thead>
         <tr>
             <th>Name</th>
@@ -43,8 +31,8 @@
         </tr>
     </thead>
     <tbody>
-        {#each networks as network}
-            <tr>
+        {#each $networks as network}
+            <tr on:click={() => handleClick(network)}>
                 <th scope="row">{network.name}</th>
                 <td>{network.address}</td>
                 <td>{network.vlan}</td>

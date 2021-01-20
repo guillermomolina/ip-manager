@@ -1,5 +1,5 @@
-import IpAddressesList from "./pages/IpAddressesList.svelte";
-import IpAddressesShow from "./pages/IpAddressesShow.svelte";
+import HostsList from "./pages/HostsList.svelte";
+import HostsShow from "./pages/HostsShow.svelte";
 import NetworksList from "./pages/NetworksList.svelte";
 import NetworksShow from "./pages/NetworksShow.svelte";
 
@@ -8,8 +8,8 @@ import NotFound from './pages/NotFound.svelte';
 
 export default {
     '/': Home,
-    '/ipAddresses/': IpAddressesList,
-    '/ipAddresses/:hostname': IpAddressesShow,
+    '/hosts/': HostsList,
+    '/hosts/:hostname': HostsShow,
     '/networks/': NetworksList,
     '/networks/:name': NetworksShow,
     '*': NotFound

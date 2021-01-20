@@ -1,1 +1,0 @@
-<h1>List ip addresses</h1>
