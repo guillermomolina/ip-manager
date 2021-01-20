@@ -20,7 +20,7 @@
     }
   </script>
   
-  <Navbar color="dark" dark expand="md" fixed="top">
+  <Navbar color="dark" dark expand="md">
     <NavbarBrand href="/">IP Manager</NavbarBrand>
     <NavbarToggler on:click={() => (isOpen = !isOpen)} />
     <Collapse {isOpen} navbar expand="md" on:update={handleUpdate}>

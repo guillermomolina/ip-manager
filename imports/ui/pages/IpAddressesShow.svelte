@@ -1,4 +1,5 @@
 <script>
+  export let params;
   export let hostname;
 </script>
 
